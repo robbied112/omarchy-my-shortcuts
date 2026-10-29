@@ -6,7 +6,7 @@ A single bar icon opens the same searchable menu, listing the keybindings you
 added yourself (read live from `~/.config/hypr/bindings.lua`) plus any extra
 rows you want to remember. Pick a row and it runs.
 
-![A keyboard icon in the Omarchy bar that opens a searchable list of your own shortcuts](screenshot.png)
+![A keyboard icon in the Omarchy bar that opens a searchable list of your own shortcuts](preview.png)
 
 ## Install
 
@@ -17,6 +17,12 @@ omarchy plugin add https://github.com/robbied112/omarchy-my-shortcuts.git --enab
 New plugins stay disabled until you enable them, so you can read the code first.
 The widget lands in the right section of the bar; move it with
 `omarchy bar move robbied112.my-shortcuts --section left`.
+
+Remove it again with:
+
+```bash
+omarchy plugin remove robbied112.my-shortcuts
+```
 
 Optional keybinding, in `~/.config/hypr/bindings.lua`:
 
@@ -57,6 +63,16 @@ Set in `~/.config/omarchy/shell.json` on the widget entry, or via the bar settin
 Omarchy is easy to customise and easy to forget what you customised. This keeps
 the list in front of you without maintaining a separate document: the bindings
 file is the source of truth.
+
+## Dependencies
+
+Nothing beyond a stock Omarchy install: `bash`, `omarchy menu select`,
+`omarchy launch editor`, and `setsid` (util-linux). No network access, no
+background process; the script only runs when you click the icon.
+
+The widget reads your bindings file and extras file. It never writes to them
+except to create an empty extras file with a comment header when you choose
+"edit extras" and none exists yet.
 
 ## License
 
