@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "robbied112.my-shortcuts",
+  "name": "My Shortcuts",
+  "version": "1.0.0",
+  "author": "Robbie Davis",
+  "license": "MIT",
+  "description": "A bar icon that opens a searchable menu of only the keybindings and workflows you added yourself. Pick a row to run it.",
+  "kinds": ["bar-widget"],
+  "entryPoints": { "barWidget": "MyShortcuts.qml" },
+  "barWidget": {
+    "displayName": "My Shortcuts",
+    "description": "Click: menu of your own bindings from ~/.config/hypr/bindings.lua plus your extras. Right-click: edit the extras list.",
+    "category": "Info",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "glyph": "󰌌",
+      "bindingsFile": "~/.config/hypr/bindings.lua",
+      "extrasFile": "~/.config/omarchy/my-shortcuts.extra",
+      "menuWidth": 980
+    },
+    "schema": [
+      { "key": "glyph", "type": "string", "label": "Bar icon (Nerd Font glyph)", "defaultValue": "󰌌" },
+      { "key": "bindingsFile", "type": "string", "label": "Bindings file to read o.bind(...) lines from", "defaultValue": "~/.config/hypr/bindings.lua" },
+      { "key": "extrasFile", "type": "string", "label": "Extras file (label<TAB>command per line)", "defaultValue": "~/.config/omarchy/my-shortcuts.extra" },
+      { "key": "menuWidth", "type": "integer", "label": "Menu width (px)", "min": 400, "max": 2000, "step": 20, "defaultValue": 980 }
+    ]
+  }
+}
